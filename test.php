@@ -14,8 +14,8 @@ function c($n){
 
 function table($type, $text, $align="center"){
 	
-	$acento1 = array("á", "é", "í", "ó", "ú", "ü", "Ü");
-	$acento2 = array(chr(hexdec("a0")), chr(hexdec("82")), chr(hexdec("a1")), chr(hexdec("a2")), chr(hexdec("a3")), chr(hexdec("81")), chr(hexdec("9a")));
+	$acento1 = array("á", "é", "í", "ó", "ú", "ü", "Ü", "ñ", "Ñ");
+	$acento2 = array(chr(hexdec("a0")), chr(hexdec("82")), chr(hexdec("a1")), chr(hexdec("a2")), chr(hexdec("a3")), chr(hexdec("81")), chr(hexdec("9a")), chr(hexdec("a4")), chr(hexdec("a5")));
 
 	$return ="";
 	$return .= c("C9"); //esquina
@@ -100,8 +100,8 @@ function table($type, $text, $align="center"){
 
 
 
-echo table("ubuntu", "Hola!! esto es un texto de largo 78 justo, para probar que pasa con la función");
-echo table("dos","Hola!! esto es un texto de largo 78 justo, para probar que pasa con la función");
+echo table("ubuntu", "Hola!! ñandú esto es un texto de largo 78 justo, para probar que pasa con la función");
+echo table("dos","Hola!! Ññandú esto es un texto de largo 78 justo, para probar que pasa con la función");
 
 echo table("ubuntu","Hola!!! esto es un texto de largo 79 justo, para probar que pasa con la función", "right");
 echo table("dos","áéíóúüÜHola!!! esto es un texto de largo 79 justo, para probar que pasa con la función pingüino", "left");
