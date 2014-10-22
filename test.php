@@ -11,8 +11,12 @@ function c($n){
 	return "<i class='c".$n."'></i>";
 }
 
+
 function table($type, $text, $align="center"){
 	
+	$acento1 = array("á", "é", "í", "ó", "ú", "ü", "Ü");
+	$acento2 = array(chr(hexdec("a0")), chr(hexdec("82")), chr(hexdec("a1")), chr(hexdec("a2")), chr(hexdec("a3")), chr(hexdec("81")), chr(hexdec("9a")));
+
 	$return ="";
 	$return .= c("C9"); //esquina
 
@@ -21,10 +25,15 @@ function table($type, $text, $align="center"){
 	}
 
 	$return .= c("BB");//esquina
+
+	if($type=="dos"){
+		$text2 = str_replace($acento1, $acento2, $text);
+	}else{
+		$text2 = utf8_decode($text);
+	}
 	
-		
 	$end=false;
-	$text2 = $text;
+	
 	while($end==false){
 		if(strlen($text2)>78){
 			$cutted=false;
@@ -59,7 +68,7 @@ function table($type, $text, $align="center"){
 		if($align=="center"){$return .= "<div class='word' style='width:".$izq."px'></div>";}
 		if($align=="right"){$return .= "<div class='word' style='width:".($resto*9)."px'></div>";}
 		
-		if($type=="ubuntu"){
+		if($type=="dos"){
 			$strlen = strlen( $line );
 			for( $i = 0; $i <= $strlen; $i++ ) {
 			    $char = substr( $line, $i, 1 );
@@ -91,11 +100,11 @@ function table($type, $text, $align="center"){
 
 
 
-echo table("ubuntu", "Hola!! esto es un texto de largo 78 justo, para probar que pasa con la funcion");
-echo table("dos","Hola!! esto es un texto de largo 78 justo, para probar que pasa con la funcion");
+echo table("ubuntu", "Hola!! esto es un texto de largo 78 justo, para probar que pasa con la función");
+echo table("dos","Hola!! esto es un texto de largo 78 justo, para probar que pasa con la función");
 
-echo table("ubuntu","Hola!!! esto es un texto de largo 79 justo, para probar que pasa con la funcion", "right");
-echo table("dos","Hola!!! esto es un texto de largo 79 justo, para probar que pasa con la funcion", "left");
+echo table("ubuntu","Hola!!! esto es un texto de largo 79 justo, para probar que pasa con la función", "right");
+echo table("dos","áéíóúüÜHola!!! esto es un texto de largo 79 justo, para probar que pasa con la función pingüino", "left");
 
 ?></div>
 
