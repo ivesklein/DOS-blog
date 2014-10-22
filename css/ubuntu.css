@@ -1,0 +1,20 @@
+.content{
+	font-family: 'Ubuntu Mono';
+	color: silver;
+	letter-spacing: 1px;/*ubuntu mono have 8px width, +1 = 9 */
+}
+
+.word{
+	display:inline-block;
+	height: 13px;
+	position: relative;
+	top: -4;
+}
+
+.sl{/*space left*/
+	margin-left: 9px;
+}
+
+.sr{/*space right*/
+	margin-right: 9px;
+}
